@@ -24,7 +24,11 @@ class AuthViewController: UIViewController {
         self.view.backgroundColor = .mainWhite()
         setupConstreints()
     }
-    
+}
+
+
+//MARK: - Configure Constreints
+extension AuthViewController {
     private func setupConstreints() {
         
         logoImage.translatesAutoresizingMaskIntoConstraints = false
@@ -68,8 +72,7 @@ class AuthViewController: UIViewController {
 
 
 
-
-
+//MARK: - SwiftUi Canvas
 import SwiftUI
 
 struct AuthViewControllerProvider: PreviewProvider {
