@@ -12,6 +12,8 @@
 		0C703D012891072400E88921 /* UIlabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703D002891072400E88921 /* UIlabel + Extension.swift */; };
 		0C703D032891079400E88921 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703D022891079400E88921 /* UIImageView + Extension.swift */; };
 		0C703D0728910B7E00E88921 /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703D0628910B7E00E88921 /* UIColor + Extension.swift */; };
+		0C703D09289118D800E88921 /* ButtonFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703D08289118D800E88921 /* ButtonFormView.swift */; };
+		0C703D0B2891209400E88921 /* UiStackView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703D0A2891209400E88921 /* UiStackView + Extension.swift */; };
 		0C8184E0288FBFA400925CEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8184DF288FBFA400925CEA /* AppDelegate.swift */; };
 		0C8184E2288FBFA400925CEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8184E1288FBFA400925CEA /* SceneDelegate.swift */; };
 		0C8184E4288FBFA400925CEA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8184E3288FBFA400925CEA /* AuthViewController.swift */; };
@@ -25,6 +27,8 @@
 		0C703D002891072400E88921 /* UIlabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIlabel + Extension.swift"; sourceTree = "<group>"; };
 		0C703D022891079400E88921 /* UIImageView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + Extension.swift"; sourceTree = "<group>"; };
 		0C703D0628910B7E00E88921 /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
+		0C703D08289118D800E88921 /* ButtonFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFormView.swift; sourceTree = "<group>"; };
+		0C703D0A2891209400E88921 /* UiStackView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UiStackView + Extension.swift"; sourceTree = "<group>"; };
 		0C8184DC288FBFA400925CEA /* iChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0C8184DF288FBFA400925CEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0C8184E1288FBFA400925CEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				0C703CFE2891069C00E88921 /* UIFont + Extension.swift */,
+				0C703D0A2891209400E88921 /* UiStackView + Extension.swift */,
 				0C703D0628910B7E00E88921 /* UIColor + Extension.swift */,
 				0C703D022891079400E88921 /* UIImageView + Extension.swift */,
 				0C703D002891072400E88921 /* UIlabel + Extension.swift */,
@@ -60,6 +65,7 @@
 		0C703D052891086D00E88921 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0C703D08289118D800E88921 /* ButtonFormView.swift */,
 				0C703D042891086100E88921 /* UIKit */,
 			);
 			path = Extensions;
@@ -166,8 +172,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C703CFF2891069C00E88921 /* UIFont + Extension.swift in Sources */,
+				0C703D0B2891209400E88921 /* UiStackView + Extension.swift in Sources */,
 				0C8184E4288FBFA400925CEA /* AuthViewController.swift in Sources */,
 				0C703D032891079400E88921 /* UIImageView + Extension.swift in Sources */,
+				0C703D09289118D800E88921 /* ButtonFormView.swift in Sources */,
 				0C8184E0288FBFA400925CEA /* AppDelegate.swift in Sources */,
 				0C8184E2288FBFA400925CEA /* SceneDelegate.swift in Sources */,
 				0C703D012891072400E88921 /* UIlabel + Extension.swift in Sources */,
