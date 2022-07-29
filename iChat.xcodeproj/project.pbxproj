@@ -21,6 +21,7 @@
 		0C8184E4288FBFA400925CEA /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C8184E3288FBFA400925CEA /* AuthViewController.swift */; };
 		0C8184E9288FBFA800925CEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0C8184E8288FBFA800925CEA /* Assets.xcassets */; };
 		0C8184EC288FBFA800925CEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0C8184EA288FBFA800925CEA /* LaunchScreen.storyboard */; };
+		0C86F9D02893B2A500BB7B2A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9CF2893B2A500BB7B2A /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		0C8184E8288FBFA800925CEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0C8184EB288FBFA800925CEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0C8184ED288FBFA800925CEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0C86F9CF2893B2A500BB7B2A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				0C8184E1288FBFA400925CEA /* SceneDelegate.swift */,
 				0C8184E3288FBFA400925CEA /* AuthViewController.swift */,
 				0C703D0C28914C2800E88921 /* SignUpViewController.swift */,
+				0C86F9CF2893B2A500BB7B2A /* LoginViewController.swift */,
 				0C703D052891086D00E88921 /* Extensions */,
 				0C8184E8288FBFA800925CEA /* Assets.xcassets */,
 				0C8184EA288FBFA800925CEA /* LaunchScreen.storyboard */,
@@ -188,6 +191,7 @@
 				0C8184E2288FBFA400925CEA /* SceneDelegate.swift in Sources */,
 				0C703D012891072400E88921 /* UIlabel + Extension.swift in Sources */,
 				0C703D0728910B7E00E88921 /* UIColor + Extension.swift in Sources */,
+				0C86F9D02893B2A500BB7B2A /* LoginViewController.swift in Sources */,
 				0C703CFD2891014E00E88921 /* UIButton + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
