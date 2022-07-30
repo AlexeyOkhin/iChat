@@ -24,6 +24,7 @@
 		0C86F9D02893B2A500BB7B2A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9CF2893B2A500BB7B2A /* LoginViewController.swift */; };
 		0C86F9D228944B4400BB7B2A /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9D128944B4400BB7B2A /* SetupProfileViewController.swift */; };
 		0C86F9D42894F6D300BB7B2A /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9D32894F6D300BB7B2A /* AddPhotoView.swift */; };
+		0C86F9D628951D1E00BB7B2A /* UISegmentetController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9D528951D1E00BB7B2A /* UISegmentetController + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		0C86F9CF2893B2A500BB7B2A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0C86F9D128944B4400BB7B2A /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		0C86F9D32894F6D300BB7B2A /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
+		0C86F9D528951D1E00BB7B2A /* UISegmentetController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentetController + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				0C703D022891079400E88921 /* UIImageView + Extension.swift */,
 				0C703D002891072400E88921 /* UIlabel + Extension.swift */,
 				0C703CFC2891014E00E88921 /* UIButton + Extension.swift */,
+				0C86F9D528951D1E00BB7B2A /* UISegmentetController + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				0C8184E4288FBFA400925CEA /* AuthViewController.swift in Sources */,
 				0C703D032891079400E88921 /* UIImageView + Extension.swift in Sources */,
 				0C86F9D42894F6D300BB7B2A /* AddPhotoView.swift in Sources */,
+				0C86F9D628951D1E00BB7B2A /* UISegmentetController + Extension.swift in Sources */,
 				0C703D09289118D800E88921 /* ButtonFormView.swift in Sources */,
 				0C8184E0288FBFA400925CEA /* AppDelegate.swift in Sources */,
 				0C8184E2288FBFA400925CEA /* SceneDelegate.swift in Sources */,
