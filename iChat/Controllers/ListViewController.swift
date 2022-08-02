@@ -8,18 +8,48 @@
 import UIKit
 import SwiftUI
 
+struct MChat: Hashable {
+    var userName: String
+    var userImage: UIImage
+    var lastMessage: String
+    var id = UUID()
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: MChat, rhs: MChat) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
 class ListViewController: UIViewController {
+    
+    let activeChats: [MChat] = [
+    MChat(userName: "Bob", userImage: UIImage(named: "human1")!, lastMessage: "Hello"),
+    MChat(userName: "Dob", userImage: UIImage(named: "human2")!, lastMessage: "Hello"),
+    MChat(userName: "Panch", userImage: UIImage(named: "human3")!, lastMessage: "Hello"),
+    MChat(userName: "Anna", userImage: UIImage(named: "human4")!, lastMessage: "Hello"),
+    MChat(userName: "Tery", userImage: UIImage(named: "human5")!, lastMessage: "Hello")
+    ]
     
     var collectionView: UICollectionView!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupCollectionView()
-        setupSearchBar()
-
+    enum Section: Int, CaseIterable {
+        case activityChat
     }
     
+    var dataSource: UICollectionViewDiffableDataSource<Section, MChat>?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupSearchBar()
+        setupCollectionView()
+        createDataSource()
+        reloadData()
+    }
 }
+
 //MARK: - setup collectionView
 extension ListViewController {
     private func setupCollectionView() {
@@ -28,9 +58,7 @@ extension ListViewController {
         collectionView.backgroundColor = .mainWhite()
         self.view.addSubview(collectionView)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
-        
-        collectionView.delegate = self
-        collectionView.dataSource = self
+    
     }
     
 //MARK: - setup serchController
@@ -46,7 +74,7 @@ extension ListViewController {
         
     }
     
-    //MARK: - create Compositional layout
+//MARK: - create Compositional layout
     private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, environment in
             
@@ -65,28 +93,30 @@ extension ListViewController {
         }
         return layout
     }
-}
-
-
-
-
-//MARK: - setting delegate datasourse
-
-extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        7
+    private func createDataSource() {
+        dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, itemIdentifier) -> UICollectionViewCell? in
+            guard let section = Section(rawValue: indexPath.section) else { fatalError("not section") }
+            
+            switch section {
+            case .activityChat:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
+                cell.backgroundColor = .systemBlue
+                return cell
+            }
+        })
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
-        cell.backgroundColor = .redButton()
-        return cell
+    private func reloadData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MChat>()
+        snapshot.appendSections([.activityChat])
+        snapshot.appendItems(activeChats, toSection: .activityChat)
+        dataSource?.apply(snapshot, animatingDifferences: true)
+        
     }
 }
 
 //MARK: - searchBar delegate
-
 extension ListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
