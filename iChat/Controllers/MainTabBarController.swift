@@ -18,7 +18,6 @@ class MainTabBarController: UITabBarController {
         let boldConf = UIImage.SymbolConfiguration(weight: .bold)
         
         tabBar.tintColor = #colorLiteral(red: 0.5568627715, green: 0.3529411852, blue: 0.9686274529, alpha: 1)
-        tabBar.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         
         let imagePeople = UIImage(systemName: "person.2", withConfiguration: boldConf)!
         let imageList = UIImage(systemName: "bubble.left.and.bubble.right", withConfiguration: boldConf)!
@@ -33,7 +32,6 @@ class MainTabBarController: UITabBarController {
         let navigation = UINavigationController(rootViewController: rootViewController)
         navigation.tabBarItem.title = title
         navigation.tabBarItem.image = image
-        navigation.navigationBar.backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
         return navigation
     }
 }

@@ -12,10 +12,8 @@ class ListViewController: UIViewController {
     
     var collectionView: UICollectionView!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         setupCollectionView()
 
     }
@@ -26,7 +24,7 @@ extension ListViewController {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        //collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .white
         self.view.addSubview(collectionView)
         
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
@@ -65,6 +63,7 @@ struct ListControllerProvider: PreviewProvider {
     
     struct ContainerView: UIViewControllerRepresentable {
         let viewController = ListViewController()
+        
         func makeUIViewController(context: Context) -> ListViewController {
             return viewController
         }
