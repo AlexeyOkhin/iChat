@@ -23,7 +23,7 @@ class ListViewController: UIViewController {
 //MARK: - setup collectionView
 extension ListViewController {
     private func setupCollectionView() {
-        collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: createCompositionalLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.backgroundColor = .mainWhite()
         self.view.addSubview(collectionView)
@@ -45,6 +45,26 @@ extension ListViewController {
         searchController.searchBar.delegate = self
         
     }
+    
+    //MARK: - create Compositional layout
+    private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, environment in
+            
+            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+            let collectionItem = NSCollectionLayoutItem(layoutSize: itemSize)
+            collectionItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10)
+            
+            let groupeSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                    heightDimension: NSCollectionLayoutDimension.absolute(86))
+            let collectionGroupe = NSCollectionLayoutGroup.vertical(layoutSize: groupeSize, subitems: [collectionItem])
+            collectionGroupe.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0)
+            
+            let section = NSCollectionLayoutSection(group: collectionGroupe)
+            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
+            return section
+        }
+        return layout
+    }
 }
 
 
@@ -60,7 +80,7 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
-        cell.backgroundColor = .red
+        cell.backgroundColor = .redButton()
         return cell
     }
 }
