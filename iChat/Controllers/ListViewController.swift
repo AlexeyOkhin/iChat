@@ -15,6 +15,7 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCollectionView()
+        setupSearchBar()
 
     }
     
@@ -24,16 +25,30 @@ extension ListViewController {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        collectionView.backgroundColor = .white
+        collectionView.backgroundColor = .mainWhite()
         self.view.addSubview(collectionView)
-        
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
         
         collectionView.delegate = self
         collectionView.dataSource = self
+    }
+    
+//MARK: - setup serchController
+    private func setupSearchBar() {
+        navigationController?.navigationBar.barTintColor = .mainWhite()
+        navigationController?.navigationBar.shadowImage = UIImage()
+        let searchController = UISearchController()
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.hidesNavigationBarDuringPresentation = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
         
     }
 }
+
+
+
 
 //MARK: - setting delegate datasourse
 
@@ -50,6 +65,13 @@ extension ListViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 }
 
+//MARK: - searchBar delegate
+
+extension ListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+    }
+}
 
 
 
@@ -62,9 +84,9 @@ struct ListControllerProvider: PreviewProvider {
     }
     
     struct ContainerView: UIViewControllerRepresentable {
-        let viewController = ListViewController()
+        let viewController = MainTabBarController()
         
-        func makeUIViewController(context: Context) -> ListViewController {
+        func makeUIViewController(context: Context) -> MainTabBarController {
             return viewController
         }
         
