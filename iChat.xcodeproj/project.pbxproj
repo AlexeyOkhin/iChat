@@ -28,6 +28,8 @@
 		0C86F9D228944B4400BB7B2A /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9D128944B4400BB7B2A /* SetupProfileViewController.swift */; };
 		0C86F9D42894F6D300BB7B2A /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9D32894F6D300BB7B2A /* AddPhotoView.swift */; };
 		0C86F9D628951D1E00BB7B2A /* UISegmentetController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9D528951D1E00BB7B2A /* UISegmentetController + Extension.swift */; };
+		0CC14D6928B3FD2600CB0D13 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC14D6728B3FD2600CB0D13 /* waitingChats.json */; };
+		0CC14D6A28B3FD2600CB0D13 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC14D6828B3FD2600CB0D13 /* activeChats.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +56,8 @@
 		0C86F9D128944B4400BB7B2A /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		0C86F9D32894F6D300BB7B2A /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		0C86F9D528951D1E00BB7B2A /* UISegmentetController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentetController + Extension.swift"; sourceTree = "<group>"; };
+		0CC14D6728B3FD2600CB0D13 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
+		0CC14D6828B3FD2600CB0D13 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +74,8 @@
 		0C703D042891086100E88921 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				0CC14D6828B3FD2600CB0D13 /* activeChats.json */,
+				0CC14D6728B3FD2600CB0D13 /* waitingChats.json */,
 				0C703CFE2891069C00E88921 /* UIFont + Extension.swift */,
 				0C703D0A2891209400E88921 /* UiStackView + Extension.swift */,
 				0C703D0628910B7E00E88921 /* UIColor + Extension.swift */,
@@ -202,8 +208,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CC14D6928B3FD2600CB0D13 /* waitingChats.json in Resources */,
 				0C8184EC288FBFA800925CEA /* LaunchScreen.storyboard in Resources */,
 				0C8184E9288FBFA800925CEA /* Assets.xcassets in Resources */,
+				0CC14D6A28B3FD2600CB0D13 /* activeChats.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
