@@ -8,11 +8,11 @@
 import UIKit
 import SwiftUI
 
-struct MChat: Hashable {
-    var userName: String
-    var userImage: UIImage
+struct MChat: Hashable, Decodable {
+    var username: String
+    var userImageString: String
     var lastMessage: String
-    var id = UUID()
+    var id: Int
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
@@ -25,18 +25,13 @@ struct MChat: Hashable {
 
 class ListViewController: UIViewController {
     
-    let activeChats: [MChat] = [
-    MChat(userName: "Bob", userImage: UIImage(named: "human1")!, lastMessage: "Hello"),
-    MChat(userName: "Dob", userImage: UIImage(named: "human2")!, lastMessage: "Hello"),
-    MChat(userName: "Panch", userImage: UIImage(named: "human3")!, lastMessage: "Hello"),
-    MChat(userName: "Anna", userImage: UIImage(named: "human4")!, lastMessage: "Hello"),
-    MChat(userName: "Tery", userImage: UIImage(named: "human5")!, lastMessage: "Hello")
-    ]
+    let activeChats = Bundle.main.decode([MChat].self, from: "activeChats.json")
+    let waitingChats = Bundle.main.decode([MChat].self, from: "waitingChats.json")
     
     var collectionView: UICollectionView!
     
     enum Section: Int, CaseIterable {
-        case activityChat
+        case waitingChat, activityChat
     }
     
     var dataSource: UICollectionViewDiffableDataSource<Section, MChat>?
@@ -48,9 +43,19 @@ class ListViewController: UIViewController {
         createDataSource()
         reloadData()
     }
+    
+    private func reloadData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, MChat>()
+        snapshot.appendSections([.waitingChat, .activityChat])
+        snapshot.appendItems(waitingChats, toSection: .waitingChat)
+        snapshot.appendItems(activeChats, toSection: .activityChat)
+        dataSource?.apply(snapshot, animatingDifferences: true)
+        
+    }
 }
 
 //MARK: - setup collectionView
+
 extension ListViewController {
     private func setupCollectionView() {
         collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: createCompositionalLayout())
@@ -58,10 +63,12 @@ extension ListViewController {
         collectionView.backgroundColor = .mainWhite()
         self.view.addSubview(collectionView)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
-    
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid2")
+        
     }
     
-//MARK: - setup serchController
+    //MARK: - setup serchController
+    
     private func setupSearchBar() {
         navigationController?.navigationBar.barTintColor = .mainWhite()
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -73,27 +80,20 @@ extension ListViewController {
         searchController.searchBar.delegate = self
         
     }
-    
-//MARK: - create Compositional layout
-    private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
-        let layout = UICollectionViewCompositionalLayout { sectionIndex, environment in
-            
-            let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
-            let collectionItem = NSCollectionLayoutItem(layoutSize: itemSize)
-            collectionItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10)
-            
-            let groupeSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                    heightDimension: NSCollectionLayoutDimension.absolute(86))
-            let collectionGroupe = NSCollectionLayoutGroup.vertical(layoutSize: groupeSize, subitems: [collectionItem])
-            collectionGroupe.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 5, trailing: 0)
-            
-            let section = NSCollectionLayoutSection(group: collectionGroupe)
-            section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
-            return section
-        }
-        return layout
+}
+
+//MARK: - searchBar delegate
+
+extension ListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
     }
-    
+}
+
+//MARK: - create DataSource
+
+extension ListViewController {
+   
     private func createDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, itemIdentifier) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else { fatalError("not section") }
@@ -103,23 +103,61 @@ extension ListViewController {
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
                 cell.backgroundColor = .systemBlue
                 return cell
+            case .waitingChat:
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid2", for: indexPath)
+                cell.backgroundColor = .systemRed
+                return cell
             }
         })
     }
-    
-    private func reloadData() {
-        var snapshot = NSDiffableDataSourceSnapshot<Section, MChat>()
-        snapshot.appendSections([.activityChat])
-        snapshot.appendItems(activeChats, toSection: .activityChat)
-        dataSource?.apply(snapshot, animatingDifferences: true)
-        
-    }
 }
 
-//MARK: - searchBar delegate
-extension ListViewController: UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+
+//MARK: - Setup Layout
+
+extension ListViewController {
+    
+    private func createCompositionalLayout() -> UICollectionViewCompositionalLayout {
+        let layout = UICollectionViewCompositionalLayout { sectionIndex, environment in
+            guard let section = Section(rawValue: sectionIndex) else { fatalError("not section") }
+            switch section {
+            case .activityChat:
+                return self.createActivitySection()
+            case .waitingChat:
+                return self.createWaitingSection()
+            }
+        }
+        return layout
+    }
+    
+    private func createWaitingSection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let collectionItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupeSize = NSCollectionLayoutSize(widthDimension: .absolute(78),
+                                                heightDimension: .absolute(78))
+        let collectionGroupe = NSCollectionLayoutGroup.horizontal(layoutSize: groupeSize, subitems: [collectionItem])
+        
+        let section = NSCollectionLayoutSection(group: collectionGroupe)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
+        section.interGroupSpacing = 20
+        section.orthogonalScrollingBehavior = .continuous
+        return section
+    }
+    
+    private func createActivitySection() -> NSCollectionLayoutSection {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1))
+        let collectionItem = NSCollectionLayoutItem(layoutSize: itemSize)
+        collectionItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10)
+        
+        let groupeSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
+                                                heightDimension: NSCollectionLayoutDimension.absolute(78))
+        let collectionGroupe = NSCollectionLayoutGroup.vertical(layoutSize: groupeSize, subitems: [collectionItem])
+        
+        let section = NSCollectionLayoutSection(group: collectionGroupe)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20)
+        section.interGroupSpacing = 8
+        return section
     }
 }
 
