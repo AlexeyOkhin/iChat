@@ -28,6 +28,7 @@
 		0C86F9D228944B4400BB7B2A /* SetupProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9D128944B4400BB7B2A /* SetupProfileViewController.swift */; };
 		0C86F9D42894F6D300BB7B2A /* AddPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9D32894F6D300BB7B2A /* AddPhotoView.swift */; };
 		0C86F9D628951D1E00BB7B2A /* UISegmentetController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C86F9D528951D1E00BB7B2A /* UISegmentetController + Extension.swift */; };
+		0CB90BD828B53C5A007A2591 /* ActiveChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB90BD728B53C5A007A2591 /* ActiveChatCell.swift */; };
 		0CC14D6928B3FD2600CB0D13 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC14D6728B3FD2600CB0D13 /* waitingChats.json */; };
 		0CC14D6A28B3FD2600CB0D13 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC14D6828B3FD2600CB0D13 /* activeChats.json */; };
 		0CC14D6C28B3FDCE00CB0D13 /* Bundle-Decodeble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC14D6B28B3FDCE00CB0D13 /* Bundle-Decodeble.swift */; };
@@ -57,6 +58,7 @@
 		0C86F9D128944B4400BB7B2A /* SetupProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupProfileViewController.swift; sourceTree = "<group>"; };
 		0C86F9D32894F6D300BB7B2A /* AddPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoView.swift; sourceTree = "<group>"; };
 		0C86F9D528951D1E00BB7B2A /* UISegmentetController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISegmentetController + Extension.swift"; sourceTree = "<group>"; };
+		0CB90BD728B53C5A007A2591 /* ActiveChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveChatCell.swift; sourceTree = "<group>"; };
 		0CC14D6728B3FD2600CB0D13 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
 		0CC14D6828B3FD2600CB0D13 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
 		0CC14D6B28B3FDCE00CB0D13 /* Bundle-Decodeble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodeble.swift"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 		0C7CE1662897A20000217CE7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0CB90BD628B53C3E007A2591 /* Cells */,
 				0C7CE1642897A1FC00217CE7 /* ListViewController.swift */,
 				0C7CE1672897A92400217CE7 /* PeopleViewController.swift */,
 				0C7CE1692897A95C00217CE7 /* MainTabBarController.swift */,
@@ -151,6 +154,14 @@
 				0C8184ED288FBFA800925CEA /* Info.plist */,
 			);
 			path = iChat;
+			sourceTree = "<group>";
+		};
+		0CB90BD628B53C3E007A2591 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				0CB90BD728B53C5A007A2591 /* ActiveChatCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 				0C86F9D228944B4400BB7B2A /* SetupProfileViewController.swift in Sources */,
 				0C703D0F289150FA00E88921 /* OneLineTextField.swift in Sources */,
 				0C703D0D28914C2800E88921 /* SignUpViewController.swift in Sources */,
+				0CB90BD828B53C5A007A2591 /* ActiveChatCell.swift in Sources */,
 				0C703CFF2891069C00E88921 /* UIFont + Extension.swift in Sources */,
 				0C7CE1682897A92400217CE7 /* PeopleViewController.swift in Sources */,
 				0C703D0B2891209400E88921 /* UiStackView + Extension.swift in Sources */,

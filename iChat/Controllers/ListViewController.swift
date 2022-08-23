@@ -62,7 +62,7 @@ extension ListViewController {
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.backgroundColor = .mainWhite()
         self.view.addSubview(collectionView)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
+        collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuserID)
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid2")
         
     }
@@ -93,16 +93,23 @@ extension ListViewController: UISearchBarDelegate {
 //MARK: - create DataSource
 
 extension ListViewController {
+    
+    private func configurate<T: SelfConfiguringCell>(cellType: T.Type, with value: MChat, for indexPath: IndexPath) -> T {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuserID, for: indexPath) as? T else {
+            fatalError("no cell")
+        }
+        cell.configure(with: value)
+        
+        return cell
+    }
    
     private func createDataSource() {
-        dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, itemIdentifier) -> UICollectionViewCell? in
+        dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, chat) -> UICollectionViewCell? in
             guard let section = Section(rawValue: indexPath.section) else { fatalError("not section") }
             
             switch section {
             case .activityChat:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
-                cell.backgroundColor = .systemBlue
-                return cell
+                return self.configurate(cellType: ActiveChatCell.self, with: chat, for: indexPath)
             case .waitingChat:
                 let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid2", for: indexPath)
                 cell.backgroundColor = .systemRed
