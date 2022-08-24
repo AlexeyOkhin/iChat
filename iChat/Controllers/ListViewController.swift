@@ -63,7 +63,7 @@ extension ListViewController {
         collectionView.backgroundColor = .mainWhite()
         self.view.addSubview(collectionView)
         collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuserID)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid2")
+        collectionView.register(WaitingChatCell.self, forCellWithReuseIdentifier: WaitingChatCell.reuserID)
         
     }
     
@@ -111,9 +111,7 @@ extension ListViewController {
             case .activityChat:
                 return self.configurate(cellType: ActiveChatCell.self, with: chat, for: indexPath)
             case .waitingChat:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid2", for: indexPath)
-                cell.backgroundColor = .systemRed
-                return cell
+                return self.configurate(cellType: WaitingChatCell.self, with: chat, for: indexPath)
             }
         })
     }

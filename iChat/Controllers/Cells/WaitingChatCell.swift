@@ -15,6 +15,7 @@ class WaitingChatCell: UICollectionViewCell, SelfConfiguringCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configureConstraints()
     }
     
     required init?(coder: NSCoder) {
