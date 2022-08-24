@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C2B0B4528B68A0B00D03CD6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2B0B4428B68A0B00D03CD6 /* GradientView.swift */; };
 		0C703CFD2891014E00E88921 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703CFC2891014E00E88921 /* UIButton + Extension.swift */; };
 		0C703CFF2891069C00E88921 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703CFE2891069C00E88921 /* UIFont + Extension.swift */; };
 		0C703D012891072400E88921 /* UIlabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703D002891072400E88921 /* UIlabel + Extension.swift */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0C2B0B4428B68A0B00D03CD6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		0C703CFC2891014E00E88921 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		0C703CFE2891069C00E88921 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		0C703D002891072400E88921 /* UIlabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIlabel + Extension.swift"; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 		0C703D052891086D00E88921 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				0C2B0B4428B68A0B00D03CD6 /* GradientView.swift */,
 				0C703D08289118D800E88921 /* ButtonFormView.swift */,
 				0C86F9D32894F6D300BB7B2A /* AddPhotoView.swift */,
 				0C703D0E289150FA00E88921 /* OneLineTextField.swift */,
@@ -238,6 +241,7 @@
 			files = (
 				0C7CE1652897A1FC00217CE7 /* ListViewController.swift in Sources */,
 				0C86F9D228944B4400BB7B2A /* SetupProfileViewController.swift in Sources */,
+				0C2B0B4528B68A0B00D03CD6 /* GradientView.swift in Sources */,
 				0C703D0F289150FA00E88921 /* OneLineTextField.swift in Sources */,
 				0C703D0D28914C2800E88921 /* SignUpViewController.swift in Sources */,
 				0CB90BD828B53C5A007A2591 /* ActiveChatCell.swift in Sources */,
