@@ -21,7 +21,7 @@ final class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     let friendImageView = UIImageView()
     let friendName = UILabel(name: "Bob", font: .laoSangaMN20())
     let lastMessage = UILabel(name: "Hello mark", font: .LaoSangam18())
-    let gradientView = UIView()
+    let gradientView = GradientView(from: .trailingTop, to: .leadingBottom, startColor: UIColor.systemPink, endColor: UIColor.systemMint)
     
     override init(frame: CGRect) {
         super.init(frame: frame)

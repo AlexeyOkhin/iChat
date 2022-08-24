@@ -13,13 +13,13 @@ class GradientView: UIView {
     
     private let gradientLayer = CAGradientLayer()
     
-    private var startColor: UIColor? {
+    @IBInspectable private var startColor: UIColor? {
         didSet {
             setupGradientColor(startColor: startColor, endColor: endColor)
         }
     }
     
-    private var endColor: UIColor? {
+    @IBInspectable private var endColor: UIColor? {
         didSet {
             setupGradientColor(startColor: startColor, endColor: endColor)
         }
@@ -67,7 +67,7 @@ class GradientView: UIView {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.frame = bounds
+        gradientLayer.frame = bounds
     }
     
     init(from: Point, to: Point, startColor: UIColor?, endColor: UIColor?) {
@@ -92,7 +92,7 @@ class GradientView: UIView {
     
     private func setupGradientColor(startColor: UIColor?, endColor: UIColor?) {
         if let startColor = startColor, let endColor = endColor {
-            gradientLayer.colors = [startColor, endColor]
+            gradientLayer.colors = [startColor.cgColor, endColor.cgColor]
         }
     }
     
