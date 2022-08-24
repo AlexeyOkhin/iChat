@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C2B0B4528B68A0B00D03CD6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2B0B4428B68A0B00D03CD6 /* GradientView.swift */; };
+		0C2B0B4728B69AF200D03CD6 /* WaitingChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C2B0B4628B69AF200D03CD6 /* WaitingChatCell.swift */; };
 		0C703CFD2891014E00E88921 /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703CFC2891014E00E88921 /* UIButton + Extension.swift */; };
 		0C703CFF2891069C00E88921 /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703CFE2891069C00E88921 /* UIFont + Extension.swift */; };
 		0C703D012891072400E88921 /* UIlabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C703D002891072400E88921 /* UIlabel + Extension.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		0C2B0B4428B68A0B00D03CD6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		0C2B0B4628B69AF200D03CD6 /* WaitingChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingChatCell.swift; sourceTree = "<group>"; };
 		0C703CFC2891014E00E88921 /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		0C703CFE2891069C00E88921 /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		0C703D002891072400E88921 /* UIlabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIlabel + Extension.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				0CB90BD728B53C5A007A2591 /* ActiveChatCell.swift */,
+				0C2B0B4628B69AF200D03CD6 /* WaitingChatCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				0C703D09289118D800E88921 /* ButtonFormView.swift in Sources */,
 				0C8184E0288FBFA400925CEA /* AppDelegate.swift in Sources */,
 				0C8184E2288FBFA400925CEA /* SceneDelegate.swift in Sources */,
+				0C2B0B4728B69AF200D03CD6 /* WaitingChatCell.swift in Sources */,
 				0CC14D6C28B3FDCE00CB0D13 /* Bundle-Decodeble.swift in Sources */,
 				0C703D012891072400E88921 /* UIlabel + Extension.swift in Sources */,
 				0C703D0728910B7E00E88921 /* UIColor + Extension.swift in Sources */,
