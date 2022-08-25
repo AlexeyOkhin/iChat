@@ -32,6 +32,7 @@ final class ListViewController: UIViewController {
     
     enum Section: Int, CaseIterable {
         case waitingChat, activityChat
+    
     }
     
     var dataSource: UICollectionViewDiffableDataSource<Section, MChat>?
@@ -63,7 +64,8 @@ extension ListViewController {
         collectionView.backgroundColor = .mainWhite()
         self.view.addSubview(collectionView)
         
-        collectionView.register(<#T##viewClass: AnyClass?##AnyClass?#>, forSupplementaryViewOfKind: <#T##String#>, withReuseIdentifier: <#T##String#>)
+        collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reusedId)
+        
         collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuserID)
         collectionView.register(WaitingChatCell.self, forCellWithReuseIdentifier: WaitingChatCell.reuserID)
         
