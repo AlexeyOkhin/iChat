@@ -23,7 +23,7 @@ struct MChat: Hashable, Decodable {
     }
 }
 
-class ListViewController: UIViewController {
+final class ListViewController: UIViewController {
     
     let activeChats = Bundle.main.decode([MChat].self, from: "activeChats.json")
     let waitingChats = Bundle.main.decode([MChat].self, from: "waitingChats.json")
@@ -62,6 +62,8 @@ extension ListViewController {
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         collectionView.backgroundColor = .mainWhite()
         self.view.addSubview(collectionView)
+        
+        collectionView.register(<#T##viewClass: AnyClass?##AnyClass?#>, forSupplementaryViewOfKind: <#T##String#>, withReuseIdentifier: <#T##String#>)
         collectionView.register(ActiveChatCell.self, forCellWithReuseIdentifier: ActiveChatCell.reuserID)
         collectionView.register(WaitingChatCell.self, forCellWithReuseIdentifier: WaitingChatCell.reuserID)
         

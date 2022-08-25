@@ -34,6 +34,7 @@
 		0CC14D6928B3FD2600CB0D13 /* waitingChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC14D6728B3FD2600CB0D13 /* waitingChats.json */; };
 		0CC14D6A28B3FD2600CB0D13 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC14D6828B3FD2600CB0D13 /* activeChats.json */; };
 		0CC14D6C28B3FDCE00CB0D13 /* Bundle-Decodeble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC14D6B28B3FDCE00CB0D13 /* Bundle-Decodeble.swift */; };
+		0CD50F1A28B7E6250032E81F /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD50F1928B7E6250032E81F /* SectionHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		0CC14D6728B3FD2600CB0D13 /* waitingChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = waitingChats.json; sourceTree = "<group>"; };
 		0CC14D6828B3FD2600CB0D13 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
 		0CC14D6B28B3FDCE00CB0D13 /* Bundle-Decodeble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodeble.swift"; sourceTree = "<group>"; };
+		0CD50F1928B7E6250032E81F /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 				0C703D0E289150FA00E88921 /* OneLineTextField.swift */,
 				0C703D042891086100E88921 /* UIKit */,
 				0CC14D6B28B3FDCE00CB0D13 /* Bundle-Decodeble.swift */,
+				0CD50F1928B7E6250032E81F /* SectionHeader.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				0C2B0B4728B69AF200D03CD6 /* WaitingChatCell.swift in Sources */,
 				0CC14D6C28B3FDCE00CB0D13 /* Bundle-Decodeble.swift in Sources */,
 				0C703D012891072400E88921 /* UIlabel + Extension.swift in Sources */,
+				0CD50F1A28B7E6250032E81F /* SectionHeader.swift in Sources */,
 				0C703D0728910B7E00E88921 /* UIColor + Extension.swift in Sources */,
 				0C86F9D02893B2A500BB7B2A /* LoginViewController.swift in Sources */,
 				0C703CFD2891014E00E88921 /* UIButton + Extension.swift in Sources */,
