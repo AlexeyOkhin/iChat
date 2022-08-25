@@ -32,6 +32,16 @@ final class ListViewController: UIViewController {
     
     enum Section: Int, CaseIterable {
         case waitingChat, activityChat
+        
+        func description() -> String {
+            switch self {
+                
+            case .waitingChat:
+                return "Waiting chat"
+            case .activityChat:
+                return "Activity chat"
+            }
+        }
     
     }
     
@@ -118,6 +128,16 @@ extension ListViewController {
                 return self.configurate(cellType: WaitingChatCell.self, with: chat, for: indexPath)
             }
         })
+        
+        dataSource?.supplementaryViewProvider = {
+            collectionView, kind, indexPath in
+            guard let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeader.reusedId, for: indexPath) as? SectionHeader else {
+                fatalError("Can t create section header")
+            }
+            guard let section = Section(rawValue: indexPath.section) else { fatalError("unknow error create section")}
+            sectionHeader.configure(title: section.description(), font: .laoSangaMN20(), color: UIColor.systemGray)
+            return sectionHeader
+        }
     }
 }
 
@@ -151,6 +171,10 @@ extension ListViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 20, trailing: 20)
         section.interGroupSpacing = 20
         section.orthogonalScrollingBehavior = .continuous
+        
+        let sectionHeader = createSectionHeader()
+        section.boundarySupplementaryItems = [sectionHeader]
+        
         return section
     }
     
@@ -159,14 +183,34 @@ extension ListViewController {
         let collectionItem = NSCollectionLayoutItem(layoutSize: itemSize)
         collectionItem.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 10, bottom: 5, trailing: 10)
         
-        let groupeSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1),
-                                                heightDimension: NSCollectionLayoutDimension.absolute(78))
+        let groupeSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: NSCollectionLayoutDimension.absolute(78)
+        )
         let collectionGroupe = NSCollectionLayoutGroup.vertical(layoutSize: groupeSize, subitems: [collectionItem])
         
         let section = NSCollectionLayoutSection(group: collectionGroupe)
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20)
         section.interGroupSpacing = 8
+        
+        let sectionHeader = createSectionHeader()
+        section.boundarySupplementaryItems = [sectionHeader]
+        
         return section
+    }
+    
+    private func createSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1),
+            heightDimension: .estimated(1)
+        )
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
+        )
+        
+        return sectionHeader
     }
 }
 

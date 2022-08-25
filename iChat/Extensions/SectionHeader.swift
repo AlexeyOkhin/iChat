@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SectionHeader: UIView {
+class SectionHeader: UICollectionReusableView {
     
     static let reusedId = "SectionHeader"
     
@@ -27,7 +27,7 @@ class SectionHeader: UIView {
         ])
     }
     
-    func configure(title: String, font: UIFont, color: UIColor) {
+    func configure(title: String, font: UIFont?, color: UIColor?) {
         self.title.text = title
         self.title.font = font
         self.title.textColor = color
