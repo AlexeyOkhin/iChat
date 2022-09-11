@@ -43,7 +43,7 @@ final class PeopleViewController: UIViewController {
         
         collectionView.register(SectionHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: SectionHeader.reusedId)
         
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cellid")
+        collectionView.register(UserCell.self, forCellWithReuseIdentifier: UserCell.reuserID)
         
     }
     
@@ -75,7 +75,7 @@ extension PeopleViewController {
             guard let section = Section(rawValue: indexPath.section) else { fatalError("not section") }
             switch section {
             case .users:
-                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellid", for: indexPath)
+                let cell = self.configurate(collectionView: collectionView, cellType: UserCell.self, with: user, for: indexPath)
                 cell.backgroundColor = .systemBlue
                 return cell
             }

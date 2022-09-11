@@ -22,8 +22,9 @@ final class WaitingChatCell: UICollectionViewCell, SelfConfiguringCell {
         super.init(coder: coder)
     }
     
-    func configure(with value: MChat) {
-        imageChat.image = UIImage(named: value.userImageString)
+    func configure<U: Hashable>(with value: U) {
+        guard let chat = value as? MChat else { return }
+        imageChat.image = UIImage(named: chat.userImageString)
     }
     
     private func configureConstraints() {

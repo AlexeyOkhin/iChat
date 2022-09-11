@@ -8,12 +8,6 @@
 
 import UIKit
 
-protocol SelfConfiguringCell {
-    static var reuserID: String { get }
-    
-    func configure(with value: MChat)
-}
-
 final class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
     
     static var reuserID: String = "ActiveChatCell"
@@ -28,10 +22,11 @@ final class ActiveChatCell: UICollectionViewCell, SelfConfiguringCell {
         setupConstraints()
     }
     
-    func configure(with value: MChat) {
-        friendImageView.image = UIImage(named: value.userImageString)
-        friendName.text = value.username
-        lastMessage.text = value.lastMessage
+    func configure<U: Hashable>(with value: U) {
+        guard let chat = value as? MChat else { return }
+        friendImageView.image = UIImage(named: chat.userImageString)
+        friendName.text = chat.username
+        lastMessage.text = chat.lastMessage
         gradientView.backgroundColor = .black
     }
     

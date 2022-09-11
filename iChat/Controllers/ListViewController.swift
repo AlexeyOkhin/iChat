@@ -92,15 +92,6 @@ extension ListViewController: UISearchBarDelegate {
 //MARK: - create DataSource
 
 extension ListViewController {
-    
-    private func configurate<T: SelfConfiguringCell>(cellType: T.Type, with value: MChat, for indexPath: IndexPath) -> T {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellType.reuserID, for: indexPath) as? T else {
-            fatalError("no cell")
-        }
-        cell.configure(with: value)
-        
-        return cell
-    }
    
     private func createDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section, MChat>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, chat) -> UICollectionViewCell? in
@@ -108,9 +99,9 @@ extension ListViewController {
             
             switch section {
             case .activityChat:
-                return self.configurate(cellType: ActiveChatCell.self, with: chat, for: indexPath)
+                return self.configurate(collectionView: collectionView, cellType: ActiveChatCell.self, with: chat, for: indexPath)
             case .waitingChat:
-                return self.configurate(cellType: WaitingChatCell.self, with: chat, for: indexPath)
+                return self.configurate(collectionView: collectionView, cellType: WaitingChatCell.self, with: chat, for: indexPath)
             }
         })
         
