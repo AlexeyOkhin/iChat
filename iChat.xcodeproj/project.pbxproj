@@ -35,6 +35,9 @@
 		0CC14D6A28B3FD2600CB0D13 /* activeChats.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC14D6828B3FD2600CB0D13 /* activeChats.json */; };
 		0CC14D6C28B3FDCE00CB0D13 /* Bundle-Decodeble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC14D6B28B3FDCE00CB0D13 /* Bundle-Decodeble.swift */; };
 		0CD50F1A28B7E6250032E81F /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CD50F1928B7E6250032E81F /* SectionHeader.swift */; };
+		0CFEF4BB28CDFA9A00722948 /* users.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CFEF4BA28CDFA9A00722948 /* users.json */; };
+		0CFEF4BD28CDFB0200722948 /* MChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFEF4BC28CDFB0200722948 /* MChat.swift */; };
+		0CFEF4BF28CDFB1B00722948 /* MUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CFEF4BE28CDFB1B00722948 /* MUser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +71,9 @@
 		0CC14D6828B3FD2600CB0D13 /* activeChats.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = activeChats.json; sourceTree = "<group>"; };
 		0CC14D6B28B3FDCE00CB0D13 /* Bundle-Decodeble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodeble.swift"; sourceTree = "<group>"; };
 		0CD50F1928B7E6250032E81F /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
+		0CFEF4BA28CDFA9A00722948 /* users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = users.json; sourceTree = "<group>"; };
+		0CFEF4BC28CDFB0200722948 /* MChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MChat.swift; sourceTree = "<group>"; };
+		0CFEF4BE28CDFB1B00722948 /* MUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,8 +90,6 @@
 		0C703D042891086100E88921 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				0CC14D6828B3FD2600CB0D13 /* activeChats.json */,
-				0CC14D6728B3FD2600CB0D13 /* waitingChats.json */,
 				0C703CFE2891069C00E88921 /* UIFont + Extension.swift */,
 				0C703D0A2891209400E88921 /* UiStackView + Extension.swift */,
 				0C703D0628910B7E00E88921 /* UIColor + Extension.swift */,
@@ -154,9 +158,13 @@
 			children = (
 				0C8184DF288FBFA400925CEA /* AppDelegate.swift */,
 				0C8184E1288FBFA400925CEA /* SceneDelegate.swift */,
+				0CFEF4C028CDFB7500722948 /* Model */,
 				0C7CE1662897A20000217CE7 /* Controllers */,
 				0C7CE1632897A1C300217CE7 /* SignIn&Auth */,
 				0C703D052891086D00E88921 /* Extensions */,
+				0CC14D6828B3FD2600CB0D13 /* activeChats.json */,
+				0CFEF4BA28CDFA9A00722948 /* users.json */,
+				0CC14D6728B3FD2600CB0D13 /* waitingChats.json */,
 				0C8184E8288FBFA800925CEA /* Assets.xcassets */,
 				0C8184EA288FBFA800925CEA /* LaunchScreen.storyboard */,
 				0C8184ED288FBFA800925CEA /* Info.plist */,
@@ -171,6 +179,15 @@
 				0C2B0B4628B69AF200D03CD6 /* WaitingChatCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0CFEF4C028CDFB7500722948 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0CFEF4BC28CDFB0200722948 /* MChat.swift */,
+				0CFEF4BE28CDFB1B00722948 /* MUser.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,6 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CFEF4BB28CDFA9A00722948 /* users.json in Resources */,
 				0CC14D6928B3FD2600CB0D13 /* waitingChats.json in Resources */,
 				0C8184EC288FBFA800925CEA /* LaunchScreen.storyboard in Resources */,
 				0C8184E9288FBFA800925CEA /* Assets.xcassets in Resources */,
@@ -251,6 +269,7 @@
 				0C703D0F289150FA00E88921 /* OneLineTextField.swift in Sources */,
 				0C703D0D28914C2800E88921 /* SignUpViewController.swift in Sources */,
 				0CB90BD828B53C5A007A2591 /* ActiveChatCell.swift in Sources */,
+				0CFEF4BF28CDFB1B00722948 /* MUser.swift in Sources */,
 				0C703CFF2891069C00E88921 /* UIFont + Extension.swift in Sources */,
 				0C7CE1682897A92400217CE7 /* PeopleViewController.swift in Sources */,
 				0C703D0B2891209400E88921 /* UiStackView + Extension.swift in Sources */,
@@ -266,6 +285,7 @@
 				0CC14D6C28B3FDCE00CB0D13 /* Bundle-Decodeble.swift in Sources */,
 				0C703D012891072400E88921 /* UIlabel + Extension.swift in Sources */,
 				0CD50F1A28B7E6250032E81F /* SectionHeader.swift in Sources */,
+				0CFEF4BD28CDFB0200722948 /* MChat.swift in Sources */,
 				0C703D0728910B7E00E88921 /* UIColor + Extension.swift in Sources */,
 				0C86F9D02893B2A500BB7B2A /* LoginViewController.swift in Sources */,
 				0C703CFD2891014E00E88921 /* UIButton + Extension.swift in Sources */,
