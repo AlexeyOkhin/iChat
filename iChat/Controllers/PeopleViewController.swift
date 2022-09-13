@@ -76,7 +76,7 @@ extension PeopleViewController {
             switch section {
             case .users:
                 let cell = self.configurate(collectionView: collectionView, cellType: UserCell.self, with: user, for: indexPath)
-                cell.backgroundColor = .systemBlue
+                //cell.backgroundColor = .systemBlue
                 return cell
             }
         })
