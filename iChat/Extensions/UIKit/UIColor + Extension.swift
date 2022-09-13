@@ -20,4 +20,8 @@ extension UIColor {
     static func bottomBorderTextField() -> UIColor {
         return #colorLiteral(red: 0.7137254902, green: 0.7137254902, blue: 0.7137254902, alpha: 1)
     }
+    
+    static func shadowCell() -> UIColor {
+        return #colorLiteral(red: 0.7137254902, green: 0.7137254902, blue: 0.7137254902, alpha: 1)
+    }
 }

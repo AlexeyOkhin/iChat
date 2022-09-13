@@ -17,6 +17,22 @@ class UserCell: UICollectionViewCell, SelfConfiguringCell {
         
         backgroundColor = .white
         setupConstreints()
+        
+        self.layer.cornerRadius = 4
+        
+        self.layer.shadowColor = UIColor.shadowCell().cgColor
+        self.layer.shadowRadius = 3
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset = CGSize(width: 0, height: 4)
+        
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        containerView.layer.cornerRadius = 4
+        containerView.clipsToBounds = true
+        
     }
     
     func configure<U>(with value: U) where U : Hashable {
@@ -32,8 +48,8 @@ class UserCell: UICollectionViewCell, SelfConfiguringCell {
         userImageView.backgroundColor = .red
         
         addSubview(containerView)
-        containerView.addSubview(userName)
         containerView.addSubview(userImageView)
+        containerView.addSubview(userName)
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: self.topAnchor),
@@ -51,9 +67,9 @@ class UserCell: UICollectionViewCell, SelfConfiguringCell {
         
         NSLayoutConstraint.activate([
             userName.topAnchor.constraint(equalTo: userImageView.bottomAnchor),
-            userName.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 8),
-            userName.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -8),
-            userName.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
+            userName.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
+            userName.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
+            userName.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
         
     }
