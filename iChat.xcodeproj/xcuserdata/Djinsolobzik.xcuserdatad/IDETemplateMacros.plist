@@ -3,7 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>FILEHEADER</key>
-	<string>//  Created by Your Name on 30.08.22.
+	<string>// ___FILENAME___
+// Created by Alexey Okhin for ___PROJECTNAME___ on ___DATE___.
+// Using Swift ___DEFAULTTOOLCHAINSWIFTVERSION___
+// ___COPYRIGHT___
 //  Copyright © 2022 by iOS Dev. All rights reserved.</string>
 </dict>
 </plist>

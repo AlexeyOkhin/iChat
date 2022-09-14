@@ -32,7 +32,7 @@ final class PeopleViewController: UIViewController {
         }
         setupCollectionView()
         createDataSource()
-        reloadData()
+        reloadData(with: nil)
     }
     
     private func setupCollectionView() {
@@ -60,10 +60,15 @@ final class PeopleViewController: UIViewController {
             
     }
     
-    private func reloadData() {
+    private func reloadData(with searchText: String?) {
+        
+        let filtered = users.filter { user in
+            user.containts(filter: searchText)
+        }
+             
         var snapshot = NSDiffableDataSourceSnapshot<Section, MUser>()
         snapshot.appendSections([.users])
-        snapshot.appendItems(users, toSection: .users)
+        snapshot.appendItems(filtered, toSection: .users)
         dataSource?.apply(snapshot, animatingDifferences: true)
         
     }
@@ -143,7 +148,7 @@ extension PeopleViewController {
 
 extension PeopleViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+       reloadData(with: searchText)
     }
 }
 
